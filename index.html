@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix - O melhor serviço de streaming</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo" aria-label="Logo da Netflix">
+      <img src="assets/Logonetflix.png" alt="Logo da Netflix" />
+    </div>
+    <h1>Quem está assistindo?</h1>
+  </header>
+
+  <main class="conteudo-principal">
+    <section class="profiles" aria-label="Perfis de usuário">
+      <ul>
+        <li class="profile">
+          <a href="js/catalogo.html" aria-label="Entrar com Monkey D. Luffy">
+            <img src="assets/monkeydluffy.png" alt="Homem com cabelo curto e barba, usando uma camiseta vermelha" />
+            <p>Monkey D. Luffy</p>
+          </a>
+        </li>
+
+        <li class="profile">
+          <a href="js/catalogo.html" aria-label="Entrar com Roronoa Zoro">
+            <img src="assets/zoro.jpg" alt="Macaco fumando um charuto de terno e gravata" />
+            <p>Roronoa Zoro</p>
+          </a>
+        </li>
+
+        <li class="profile">
+          <a href="js/catalogo.html" aria-label="Entrar com Vinsmoke Sanji">
+            <img src="assets/sanji.jpg" alt="Boneco amarelo sorridente" />
+            <p>Vinsmoke Sanji</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <button class="manage-profiles" aria-label="Gerenciar perfis">
+      Gerenciar Perfis
+    </button>
+  </main>
+
+  <script>
+    // Armazenar perfil ativo no localStorage ao clicar
+    document.querySelectorAll('.profile a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const profileElement = e.currentTarget.closest('.profile');
+        const nomePerfil = profileElement.querySelector('p').textContent;
+        const imagemPerfil = profileElement.querySelector('img').src;
+
+        // Armazenar no localStorage
+        localStorage.setItem('perfilAtivoNome', nomePerfil);
+        localStorage.setItem('perfilAtivoImagem', imagemPerfil);
+      });
+    });
+  </script>
+
+</body>
+
+</html>
